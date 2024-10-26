@@ -16,6 +16,16 @@ drop v2
 rename (v3 v4 v5 v6 v7 v8) (country_name country_code infant_mortality immunization population gdp)
 ##the first row in our dataset includes the description of vars, so we can get rid of it
 drop in 1
+##let's now see what types our variables are
+describe
+##we can see that all of them are strings, but that does not seem right. let us turn them to numeric
+destring year, replace
+destring infant_mortality, replace
+destring immunization, replace
+destring population, replace
+destring gdp, replace
+describe
+##all of our variables now have the correct form
 ##in the next do-file, we will transform the variables and make them ready for analysis
 ##save the cleaned file
 export delimited using "WDI_data_cleaned"
